@@ -21,13 +21,13 @@ export default class ListContainer extends Component {
                 <li>2</li>
             </ul> */}
 
-            <h3> Good {timeOfDay} </h3>
-            <input type="checkbox"/>
+            <h3 style={{color: "red", backgroundColor: "pink"}}> Good {timeOfDay} </h3>
+            {/* <input type="checkbox"/>
             <p> Placeholder text here </p>
             <input type="checkbox"/>
             <p> Placeholder text here </p>
             <input type="checkbox"/>
-            <p> Placeholder text here </p>
+            <p> Placeholder text here </p> */}
             </div>
         )
     }
