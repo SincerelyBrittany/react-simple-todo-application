@@ -5,23 +5,38 @@ const todoData = [
     },
     {
         id: 2,
-        todo: "Pick up the kids"
+        todo: "Pick up the kids",
+        completed: true
     },
     {
         id: 3,
-        todo: "Code"
+        todo: "Code",
+        completed: true
     },
     {
         id: 4,
-        todo: "Go to work"
+        todo: "Go to work",
+        completed: true
     },
     {
         id: 5,
-        todo: "Drop off Laundry"
+        todo: "Drop off Laundry",
+        completed: true
     },
     {
         id: 6,
-        todo: "Cook"
+        todo: "Cook",
+        completed: false
+    },
+    {
+        id: 7,
+        todo: "",
+        completed: true
+    },
+    {
+        id: 8,
+        todo: "hello",
+        completed: false
     }
 ]
 
