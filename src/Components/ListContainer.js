@@ -1,33 +1,19 @@
 import React, {Component} from 'react'
+import TodoItem from './TodoItem'
+import todoData from '../todoData.js'
 
 export default class ListContainer extends Component {
     render(){
-        const date = new Date()
-        const hours = date.getHours()
-        let timeOfDay
-
-        if (hours < 12){
-            timeOfDay = "morning"
-        } else if (hours >= 12 && hours < 17){
-            timeOfDay = "afternoon"
-        } else {
-            timeOfDay = "night"
-        }
-
+        const todoComponents = todoData.map(todo => {
+            // console.log(todo.id)
+           return < TodoItem key={todo.id} todo={todo.todo} />
+        })
         return(
-            <div>
-            {/* <ul>
-                <li>1</li>
-                <li>2</li>
-            </ul> */}
-
-            <h3 style={{color: "red", backgroundColor: "pink"}}> Good {timeOfDay} </h3>
-            {/* <input type="checkbox"/>
-            <p> Placeholder text here </p>
-            <input type="checkbox"/>
-            <p> Placeholder text here </p>
-            <input type="checkbox"/>
-            <p> Placeholder text here </p> */}
+            <div className="todo-list">
+                {todoComponents}
+            {/* < TodoItem />
+            < TodoItem />
+            < TodoItem /> */}
             </div>
         )
     }
