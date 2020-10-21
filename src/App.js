@@ -9,30 +9,44 @@ class App extends Component {
   constructor(){
     super()
     this.state = {
-      isLoading: true
+        isLoggedIn: false
     }
   }
 
-  componentDidMount(){
-    setTimeout(() => {
-      this.setState({
-        isLoading: false
-      })
-    }, 3000)
+  // componentDidMount(){
+  //   setTimeout(() => {
+  //     this.setState({
+  //       isLoading: false
+  //     })
+  //   }, 3000)
+  // }
+
+  handleClick = () => {
+    console.log("I am working ")
+    this.setState(prevState => {
+      return{
+        isLoggedIn: !prevState.isLoggedIn
+      }
+    })
   }
 
   render(){
-  return (
-    <div className="App">
-      {/* <h1>Your List</h1> */}
-      < Header />
-      {this.state.isLoading ? 
-      <h1> Loading </h1> :
-      < ListContainer />
+    let buttonText = this.state.isLoggedIn ? "Log Out" : "Log In "
+
+    return(  
+      <div>
+         <button onClick={this.handleClick}> {buttonText}</button>
+      {this.state.isLoggedIn
+      ? 
+              <div className="App">
+                  < Header />
+                  < ListContainer /> 
+                  < Footer /> 
+              </div>
+      :
+                  <h1> Please Log In </h1>
       }
-      < Footer />
-    </div>
-  );
+      </div>)
   }
 }
 

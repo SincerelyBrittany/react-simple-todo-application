@@ -6,10 +6,19 @@ export default class ListContainer extends Component {
     constructor(){
         super()
         this.state ={
-            todos: todoData
+            todos: todoData,
+            isLoading: true
         }
         this.handleChange = this.handleChange.bind(this)
     }
+
+    componentDidMount(){
+        setTimeout(() => {
+          this.setState({
+            isLoading: false
+          })
+        }, 3000)
+      }
 
     handleChange(id){
         this.setState(prevState => {
@@ -28,8 +37,13 @@ export default class ListContainer extends Component {
     render(){
         const todoComponents = this.state.todos.map(item => < TodoItem key={item.id} todo={item} handleChange={this.handleChange}  />)
         return(
-            <div className="todo-list">
-                {todoComponents}
+            <div>
+            {this.state.isLoading ? 
+                <h1> Loading </h1> :
+                <div className="todo-list">
+                        {todoComponents}
+                </div>
+            }
             </div>
         )
     }
