@@ -13,37 +13,33 @@ export default class ListContainer extends Component {
 
     handleChange(id){
         // console.log(id)
-        this.setState(state => {
-            // console.log(state.todos.id)
-            state.todos.map(todo => {
-                if (todo.id === id){
-                    console.log(todo)
-                }
-            })
-        })
-        // console.log("Changed", id)
-        // this.setState(prevState => {
-        //     const updateTodos = prevState.todos.map(todo => {
+        // this.setState(state => {
+        //     // console.log(state.todos.id)
+        //     state.todos.map(todo => {
         //         if (todo.id === id){
-        //             //console.log(todo.completed)
-        //             todo.completed = !todo.completed
+        //             // console.log(todo)
         //         }
-        //         return todo
         //     })
-        //     return {
-        //         todos: updateTodos
-        //     }
         // })
+        // console.log("Changed", id)
+        this.setState(prevState => {
+            const updateTodos = prevState.todos.map(todo => {
+                if (todo.id === id){
+                    //console.log(todo.completed)
+                    todo.completed = !todo.completed
+                }
+                return todo
+            })
+            return {
+                todos: updateTodos
+            }
+        })
     }
 
     render(){
-        const todoComponents = this.state.todos.map(item => {
-           return < TodoItem key={item.id} todo={item} handleChange={this.handleChange}  />
-        })
-        // const todoComponents = todoData.map(todo => {
-        //     // console.log(todo.id)
-        //    return < TodoItem key={todo.id} todo={todo}  />
-        // })
+        const todoComponents = this.state.todos.map(item => < TodoItem key={item.id} todo={item} handleChange={this.handleChange}  />)
+        //const todoComponents = this.state.todos.map(item => <TodoItem key={item.id} todo={item}/>)
+
         return(
             <div className="todo-list">
                 {todoComponents}
