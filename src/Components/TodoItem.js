@@ -17,8 +17,8 @@ export default class TodoItem extends Component{
             <div className="todo-item">
                 {/* <p style={{display: !this.props.todo && "none"}}>{this.props.todo}</p> */}
                 {/* <p>{this.props.todo}</p> */}
-                {this.props.todo.todo}
-            <input type="checkbox" checked={this.props.todo.completed} onChange={() => console.log("chenged")}/> 
+                <p>{this.props.todo.todo} </p>
+            <input type="checkbox" checked={this.props.todo.completed} onChange={() => this.props.handleChange(this.props.todo.id)}/> 
             </div>
         )
     }
